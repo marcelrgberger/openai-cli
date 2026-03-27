@@ -8,11 +8,18 @@ class AskproCli < Formula
   depends_on "node@22"
 
   def install
-    system "npm", "install", *std_npm_args
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    # Install dependencies and build
+    system "npm", "ci"
+    system "npm", "run", "build"
 
-    # Copy role definitions
-    (share/"askpro-cli/roles").install Dir["src/roles/**/*.md"]
+    # Install to libexec
+    libexec.install "dist", "src/roles", "node_modules", "package.json"
+
+    # Create wrapper script
+    (bin/"askpro").write <<~SH
+      #!/bin/bash
+      exec "#{Formula["node@22"].opt_bin}/node" "#{libexec}/dist/askpro-cli.js" "$@"
+    SH
   end
 
   def caveats
