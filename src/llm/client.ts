@@ -53,7 +53,7 @@ export async function* streamChat(options: StreamOptions): AsyncGenerator<Stream
     messages: options.messages,
     tools: options.tools?.length ? options.tools : undefined,
     temperature: options.temperature ?? 0.3,
-    max_tokens: options.maxTokens ?? 4096,
+    max_completion_tokens: options.maxTokens ?? 4096,
     stream: true,
   });
 
