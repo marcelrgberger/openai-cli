@@ -2,16 +2,16 @@ import chalk from 'chalk';
 
 export function renderWelcome(): void {
   console.log();
-  console.log(chalk.bold.green('  askpro') + chalk.dim(' — Fachexperten-Dokumenten-Agent'));
-  console.log(chalk.dim('  65+ Experten-Rollen | Dokumentenanalyse | Professionelle Ausgaben'));
+  console.log(chalk.bold.green('  askpro') + chalk.dim(' — Ask a Pro. Expert Document Agent.'));
+  console.log(chalk.dim('  85+ Expert Roles | Document Analysis | Professional Outputs'));
   console.log();
-  console.log(chalk.dim('  Befehle: /help, /roles, /docs, /export, /model, /clear'));
-  console.log(chalk.dim('  Beenden: Ctrl+C oder /exit'));
+  console.log(chalk.dim('  Commands: /help, /roles, /docs, /export, /model, /clear'));
+  console.log(chalk.dim('  Quit: Ctrl+C or /exit'));
   console.log();
 }
 
 export function renderRoleActivation(roleName: string): void {
-  console.log(chalk.cyan(`  [${roleName} aktiviert]`));
+  console.log(chalk.cyan(`  [${roleName} activated]`));
 }
 
 export function renderToolCall(toolName: string): void {
@@ -20,21 +20,21 @@ export function renderToolCall(toolName: string): void {
 
 export function renderToolResult(toolName: string, truncated: boolean): void {
   if (truncated) {
-    console.log(chalk.dim('(gekuerzt)'));
+    console.log(chalk.dim('(truncated)'));
   } else {
     console.log(chalk.dim('OK'));
   }
 }
 
 export function renderError(message: string): void {
-  console.error(chalk.red(`\n  Fehler: ${message}\n`));
+  console.error(chalk.red(`\n  Error: ${message}\n`));
 }
 
 export function renderDisclaimer(): void {
   console.log(
     chalk.dim.italic(
-      '\n  Hinweis: Diese Analyse wurde KI-gestuetzt erstellt und ersetzt keine\n' +
-      '  professionelle Beratung. Alle Angaben ohne Gewaehr.\n'
+      '\n  Note: This analysis was AI-assisted and does not replace\n' +
+      '  professional consultation. All information without warranty.\n'
     )
   );
 }

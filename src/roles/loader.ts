@@ -86,16 +86,39 @@ export function loadRolesFromDir(dir: string): RoleDefinition[] {
 }
 
 export function loadAllRoles(): RoleDefinition[] {
-  // Built-in roles
-  const builtinDir = resolve(import.meta.dirname || __dirname, '.');
-  const builtinRoles = loadRolesFromDir(builtinDir);
-
-  // User custom roles
-  const userRoles = loadRolesFromDir(GLOBAL_ROLES_DIR);
-
-  // Merge: user roles override built-in by ID
   const roleMap = new Map<string, RoleDefinition>();
-  for (const r of builtinRoles) roleMap.set(r.id, r);
+
+  // Search multiple locations for built-in roles
+  const scriptDir = import.meta.dirname || __dirname;
+  const candidateDirs = [
+    // Development: src/roles/ (when running from source)
+    resolve(scriptDir, '.'),
+    resolve(scriptDir, '..', 'roles'),
+    resolve(scriptDir, '..', '..', 'src', 'roles'),
+    // Homebrew: libexec/roles/ (when installed via brew)
+    resolve(scriptDir, '..', 'roles'),
+    resolve(scriptDir, '..', '..', 'roles'),
+    // npm global: node_modules/askpro-cli/src/roles/
+    resolve(scriptDir, '..', '..', 'src', 'roles'),
+    resolve(scriptDir, '..', 'src', 'roles'),
+    // CWD-relative fallback
+    resolve(process.cwd(), 'src', 'roles'),
+  ];
+
+  const searched = new Set<string>();
+  for (const dir of candidateDirs) {
+    const resolved = resolve(dir);
+    if (searched.has(resolved)) continue;
+    searched.add(resolved);
+
+    const roles = loadRolesFromDir(resolved);
+    for (const r of roles) {
+      if (!roleMap.has(r.id)) roleMap.set(r.id, r);
+    }
+  }
+
+  // User custom roles (always override built-in)
+  const userRoles = loadRolesFromDir(GLOBAL_ROLES_DIR);
   for (const r of userRoles) roleMap.set(r.id, r);
 
   return Array.from(roleMap.values());

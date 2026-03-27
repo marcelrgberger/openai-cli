@@ -250,6 +250,12 @@ export async function startRepl(args: CliArgs): Promise<void> {
       return;
     }
 
+    // Handle exit/quit without slash
+    if (input.toLowerCase() === 'exit' || input.toLowerCase() === 'quit') {
+      console.log(chalk.dim('\n  Goodbye!\n'));
+      process.exit(0);
+    }
+
     if (input.startsWith('/')) {
       await handleCommand(input, commandCtx);
       rl.prompt();
