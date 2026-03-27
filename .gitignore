@@ -1,6 +1,6 @@
 node_modules/
 dist/
-.openai-cli/
+.askpro/
 *.db
 *.db-journal
 .env

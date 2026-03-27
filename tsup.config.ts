@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: {
-    'openai-cli': 'bin/openai-cli.ts',
+    'askpro-cli': 'bin/askpro-cli.ts',
     'index': 'src/index.ts',
   },
   format: ['esm'],

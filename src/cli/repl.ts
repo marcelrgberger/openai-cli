@@ -21,7 +21,7 @@ function askQuestion(rl: readline.Interface, question: string): Promise<string> 
 
 async function runOnboarding(rl: readline.Interface): Promise<void> {
   console.log();
-  console.log(chalk.bold.green('  Welcome to openai-cli!'));
+  console.log(chalk.bold.green('  Welcome to askpro!'));
   console.log(chalk.dim('  AI-powered document analysis with 85+ expert consultation roles'));
   console.log();
   console.log(chalk.bold('  Let\'s set you up. You\'ll need an OpenAI API key.'));
@@ -33,7 +33,7 @@ async function runOnboarding(rl: readline.Interface): Promise<void> {
   if (!apiKey) {
     console.log(chalk.yellow('\n  No API key entered. You can set it later:'));
     console.log(chalk.dim('    export OPENAI_API_KEY="sk-..."'));
-    console.log(chalk.dim('    or: openai-cli --api-key "sk-..."'));
+    console.log(chalk.dim('    or: askpro --api-key "sk-..."'));
     console.log();
     return;
   }
@@ -43,7 +43,7 @@ async function runOnboarding(rl: readline.Interface): Promise<void> {
   }
 
   saveSettings({ apiKey });
-  console.log(chalk.green('  API key saved to ~/.openai-cli/settings.json'));
+  console.log(chalk.green('  API key saved to ~/.askpro/settings.json'));
   console.log();
 }
 

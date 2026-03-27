@@ -12,7 +12,7 @@ export interface CliArgs {
 
 export function parseArgs(): CliArgs {
   const argv = yargs(hideBin(process.argv))
-    .scriptName('openai-cli')
+    .scriptName('askpro')
     .usage('$0 [options]')
     .option('model', {
       alias: 'm',

@@ -1,12 +1,12 @@
 {
-  "name": "openai-cli",
+  "name": "askpro-cli",
   "version": "0.2.0",
   "description": "AI-powered document analysis with 85+ expert consultation roles for legal, medical, tax, and professional advice",
   "author": "Marcel R. G. Berger <hello@marcelrgberger.com>",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "openai-cli": "./dist/openai-cli.js"
+    "askpro": "./dist/askpro-cli.js"
   },
   "main": "./dist/index.js",
   "files": [
@@ -15,8 +15,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsx bin/openai-cli.ts",
-    "start": "node dist/bin/openai-cli.js",
+    "dev": "tsx bin/askpro-cli.ts",
+    "start": "node dist/bin/askpro-cli.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcelrgberger/openai-cli.git"
+    "url": "https://github.com/marcelrgberger/askpro-cli.git"
   },
   "keywords": [
     "openai",

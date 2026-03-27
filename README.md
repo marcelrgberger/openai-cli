@@ -1,4 +1,4 @@
-# openai-cli
+# askpro-cli
 
 **AI-powered document analysis with 85+ expert consultation roles.**
 
@@ -28,20 +28,20 @@ Predefined specialist roles — from attorneys and doctors to tax advisors and a
 
 ```bash
 brew tap marcelrgberger/tap
-brew install openai-cli
+brew install askpro-cli
 ```
 
 ### npm
 
 ```bash
-npm install -g openai-cli
+npm install -g askpro-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/marcelrgberger/openai-cli.git
-cd openai-cli
+git clone https://github.com/marcelrgberger/askpro-cli.git
+cd askpro-cli
 npm install
 npm run build
 npm link
@@ -56,7 +56,7 @@ You need an OpenAI API key. Get one at [platform.openai.com](https://platform.op
 export OPENAI_API_KEY="sk-..."
 
 # Option 2: Pass at startup
-openai-cli --api-key "sk-..."
+askpro-cli --api-key "sk-..."
 
 # Option 3: Saved automatically after first use
 ```
@@ -68,11 +68,11 @@ On first launch, you'll be prompted to choose your preferred model from a live l
 ### Interactive Mode
 
 ```bash
-openai-cli
+askpro-cli
 ```
 
 ```
-  openai-cli — Expert Document Agent
+  askpro-cli — Expert Document Agent
   85+ Expert Roles | Document Analysis | Professional Outputs
 
   Welcome! Fetching available models from OpenAI...
@@ -84,7 +84,7 @@ openai-cli
   5. o4-mini [reasoning]
   ...
 
-openai-cli > I received a termination letter from my employer
+askpro > I received a termination letter from my employer
 
   In which country are you located / which law applies?
   1. Germany
@@ -92,7 +92,7 @@ openai-cli > I received a termination letter from my employer
   3. Switzerland
   4. Other (please specify)
 
-openai-cli > 1
+askpro > 1
 
   [Employment Law Attorney (Germany) activated]
 
@@ -111,16 +111,16 @@ openai-cli > 1
 
 ```bash
 # Analyze a single document
-openai-cli --print "Summarize this document" < contract.pdf
+askpro-cli --print "Summarize this document" < contract.pdf
 
 # Analyze a directory
-openai-cli --dir ./tax-receipts/ --print "Prepare a tax return from these receipts"
+askpro-cli --dir ./tax-receipts/ --print "Prepare a tax return from these receipts"
 
 # Use a specific role
-openai-cli --role steuerberater --print "Check this tax assessment"
+askpro-cli --role steuerberater --print "Check this tax assessment"
 
 # Use a specific model
-openai-cli --model gpt-5.4-pro --print "Complex legal analysis"
+askpro-cli --model gpt-5.4-pro --print "Complex legal analysis"
 ```
 
 ### Commands
@@ -210,7 +210,7 @@ You can also set a model per project in your `OPENAI.md`:
 
 ## Configuration
 
-### Global: `~/.openai-cli/OPENAI.md`
+### Global: `~/.askpro/OPENAI.md`
 
 ```markdown
 # OPENAI.md
@@ -245,7 +245,7 @@ Documents for my divorce proceedings.
 
 ## Custom Expert Roles
 
-Place custom roles as `.md` files in `~/.openai-cli/roles/`:
+Place custom roles as `.md` files in `~/.askpro/roles/`:
 
 ```markdown
 ---
@@ -292,9 +292,9 @@ graph TB
 
 ## Platform
 
-**openai-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
+**askpro-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
 
-**Contributions for Windows and Linux are very welcome!** If you'd like to port openai-cli to other platforms, we appreciate pull requests.
+**Contributions for Windows and Linux are very welcome!** If you'd like to port askpro-cli to other platforms, we appreciate pull requests.
 
 ## Documentation
 

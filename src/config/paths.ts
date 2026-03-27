@@ -2,7 +2,7 @@ import { homedir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { existsSync, mkdirSync } from 'node:fs';
 
-export const GLOBAL_DIR = join(homedir(), '.openai-cli');
+export const GLOBAL_DIR = join(homedir(), '.askpro');
 export const GLOBAL_CONFIG_FILE = join(GLOBAL_DIR, 'OPENAI.md');
 export const GLOBAL_SETTINGS_FILE = join(GLOBAL_DIR, 'settings.json');
 export const GLOBAL_MEMORY_DIR = join(GLOBAL_DIR, 'memory');
@@ -18,7 +18,7 @@ export function getProjectConfigFile(): string {
 }
 
 export function getProjectDataDir(): string {
-  return join(getProjectDir(), '.openai-cli');
+  return join(getProjectDir(), '.askpro');
 }
 
 export function getProjectIndexDir(): string {

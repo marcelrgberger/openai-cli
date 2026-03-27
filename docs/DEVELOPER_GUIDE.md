@@ -1,4 +1,4 @@
-# openai-cli — Developer Guide
+# askpro-cli — Developer Guide
 
 Technical documentation for contributors and developers.
 
@@ -25,7 +25,7 @@ Technical documentation for contributors and developers.
 ```mermaid
 graph TB
     subgraph CLI Layer
-        A[bin/openai-cli.ts] --> B[cli/repl.ts]
+        A[bin/askpro-cli.ts] --> B[cli/repl.ts]
         B --> C[cli/commands.ts]
         B --> D[cli/renderer.ts]
         B --> E[cli/args.ts]
@@ -158,9 +158,9 @@ flowchart TD
 ## Project Structure
 
 ```
-openai-cli/
+askpro-cli/
 ├── bin/
-│   └── openai-cli.ts           # CLI entry point
+│   └── askpro-cli.ts           # CLI entry point
 ├── src/
 │   ├── index.ts                # Public API exports
 │   ├── cli/
@@ -217,7 +217,7 @@ openai-cli/
 │   │   └── meta/               # 3 meta roles (triage, panel, QA)
 │   ├── config/
 │   │   ├── loader.ts           # Load OPENAI.md (global + project)
-│   │   ├── paths.ts            # Standard paths (~/.openai-cli/)
+│   │   ├── paths.ts            # Standard paths (~/.askpro/)
 │   │   └── settings.ts         # Settings management
 │   ├── memory/
 │   │   ├── manager.ts          # Memory lifecycle
@@ -230,7 +230,7 @@ openai-cli/
 │   ├── USER_GUIDE.md           # User documentation (this file)
 │   └── DEVELOPER_GUIDE.md      # Developer documentation
 ├── homebrew/
-│   └── openai-cli.rb           # Homebrew formula
+│   └── askpro-cli.rb           # Homebrew formula
 ├── tests/
 ├── package.json
 ├── tsconfig.json
@@ -588,7 +588,7 @@ tests/
 
 ### Formula location
 
-`homebrew/openai-cli.rb`
+`homebrew/askpro-cli.rb`
 
 ### Publishing a release
 
@@ -600,7 +600,7 @@ tests/
 ### Local testing
 
 ```bash
-brew install --build-from-source ./homebrew/openai-cli.rb
+brew install --build-from-source ./homebrew/askpro-cli.rb
 ```
 
 ## Contributing

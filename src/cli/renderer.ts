@@ -2,7 +2,7 @@ import chalk from 'chalk';
 
 export function renderWelcome(): void {
   console.log();
-  console.log(chalk.bold.green('  openai-cli') + chalk.dim(' — Fachexperten-Dokumenten-Agent'));
+  console.log(chalk.bold.green('  askpro') + chalk.dim(' — Fachexperten-Dokumenten-Agent'));
   console.log(chalk.dim('  65+ Experten-Rollen | Dokumentenanalyse | Professionelle Ausgaben'));
   console.log();
   console.log(chalk.dim('  Befehle: /help, /roles, /docs, /export, /model, /clear'));
@@ -44,5 +44,5 @@ export function renderInfo(message: string): void {
 }
 
 export function renderPrompt(): string {
-  return chalk.green('openai-cli') + chalk.dim(' > ');
+  return chalk.green('askpro') + chalk.dim(' > ');
 }

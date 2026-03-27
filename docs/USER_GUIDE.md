@@ -1,4 +1,4 @@
-# openai-cli — User Guide
+# askpro-cli — User Guide
 
 A free, open-source CLI tool that connects to your OpenAI account and provides expert-level document analysis with 65+ specialist roles.
 
@@ -20,7 +20,7 @@ A free, open-source CLI tool that connects to your OpenAI account and provides e
 
 ## Overview
 
-openai-cli is not a coding assistant. It is a **professional consultation tool** that:
+askpro-cli is not a coding assistant. It is a **professional consultation tool** that:
 
 1. Reads documents of any format (PDF, DOCX, images, emails, spreadsheets, etc.)
 2. Automatically identifies which expert is needed based on your documents and question
@@ -29,7 +29,7 @@ openai-cli is not a coding assistant. It is a **professional consultation tool**
 
 ```mermaid
 graph LR
-    A[Your Documents] --> B[openai-cli]
+    A[Your Documents] --> B[askpro-cli]
     C[Your Question] --> B
     B --> D{Triage Agent}
     D --> E[Expert 1: Tax Advisor]
@@ -47,20 +47,20 @@ graph LR
 
 ```bash
 brew tap marcelrgberger/tap
-brew install openai-cli
+brew install askpro-cli
 ```
 
 ### Via npm
 
 ```bash
-npm install -g openai-cli
+npm install -g askpro-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/marcelrgberger/openai-cli.git
-cd openai-cli
+git clone https://github.com/marcelrgberger/askpro-cli.git
+cd askpro-cli
 npm install
 npm run build
 npm link
@@ -77,17 +77,17 @@ export OPENAI_API_KEY="sk-..."
 ### 2. Start the CLI
 
 ```bash
-openai-cli
+askpro-cli
 ```
 
 ### 3. Ask a question or load documents
 
 ```
-openai-cli > Analyze my employment contract for problematic clauses
+askpro > Analyze my employment contract for problematic clauses
 [Employment Law Attorney activated]
 ...
 
-openai-cli > Draft a termination protection lawsuit
+askpro > Draft a termination protection lawsuit
 [Generating professional document]
 ...
 ```
@@ -96,13 +96,13 @@ openai-cli > Draft a termination protection lawsuit
 
 ```bash
 # Analyze a single document
-openai-cli --print "Check this tax assessment for errors" < tax-notice.pdf
+askpro-cli --print "Check this tax assessment for errors" < tax-notice.pdf
 
 # Analyze a directory
-openai-cli --dir ./contracts/ --print "Summarize all contracts"
+askpro-cli --dir ./contracts/ --print "Summarize all contracts"
 
 # Use a specific expert
-openai-cli --role steuerberater --print "Prepare tax return from these receipts"
+askpro-cli --role steuerberater --print "Prepare tax return from these receipts"
 ```
 
 ## How It Works
@@ -154,7 +154,7 @@ flowchart TD
 
 ```mermaid
 mindmap
-  root((openai-cli))
+  root((askpro-cli))
     Legal
       Employment Law
       Family Law
@@ -245,7 +245,7 @@ mindmap
 
 ## Document Formats
 
-openai-cli reads virtually any document format:
+askpro-cli reads virtually any document format:
 
 | Category | Formats |
 |---|---|
@@ -311,7 +311,7 @@ flowchart LR
 
 ## Configuration
 
-### Global Configuration: `~/.openai-cli/OPENAI.md`
+### Global Configuration: `~/.askpro/OPENAI.md`
 
 This file applies to all sessions:
 
@@ -350,7 +350,7 @@ Documents for my 2025 tax return.
 
 ### Custom Expert Roles
 
-Create custom roles in `~/.openai-cli/roles/`:
+Create custom roles in `~/.askpro/roles/`:
 
 ```markdown
 ---
@@ -379,7 +379,7 @@ Description of expertise...
 ### Example 1: Analyze an Employment Contract
 
 ```bash
-openai-cli
+askpro-cli
 > /role fachanwalt-arbeitsrecht
 > Read my contract: arbeitsvertrag.pdf
 [Reading document...]
@@ -390,7 +390,7 @@ openai-cli
 ### Example 2: Prepare Tax Return
 
 ```bash
-openai-cli --dir ./tax-receipts/ --role steuerberater
+askpro-cli --dir ./tax-receipts/ --role steuerberater
 > Prepare my income tax return from these receipts
 [Tax Advisor analyzing 47 documents...]
 ```
@@ -398,7 +398,7 @@ openai-cli --dir ./tax-receipts/ --role steuerberater
 ### Example 3: Get a Second Medical Opinion
 
 ```bash
-openai-cli
+askpro-cli
 > Read this MRT report: mrt-befund.pdf
 [Orthopedics Expert activated]
 > What does this mean in plain language? What are my treatment options?
@@ -407,7 +407,7 @@ openai-cli
 ### Example 4: Multi-Expert Panel for Divorce
 
 ```bash
-openai-cli --dir ./scheidung/
+askpro-cli --dir ./scheidung/
 > I need advice on my divorce — consider legal, financial, and property aspects
 [Multi-Expert Panel: Family Law + Tax Advisor + Property Valuator]
 ```
@@ -415,7 +415,7 @@ openai-cli --dir ./scheidung/
 ### Example 5: Draft Official Letter
 
 ```bash
-openai-cli
+askpro-cli
 > My landlord is increasing rent by 20%. Write an objection letter.
 [Tenant Law Expert activated → Professional objection letter generated]
 > /export md
@@ -424,20 +424,20 @@ openai-cli
 
 ## Platform Support
 
-**openai-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
+**askpro-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
 
-**Contributions for Windows and Linux are very welcome!** If you'd like to port openai-cli to other platforms, we appreciate pull requests.
+**Contributions for Windows and Linux are very welcome!** If you'd like to port askpro-cli to other platforms, we appreciate pull requests.
 
 ## FAQ
 
 **Q: Is this a coding assistant?**
-A: No. openai-cli is specialized for document analysis and professional consultation. For coding, use Claude Code or similar tools.
+A: No. askpro-cli is specialized for document analysis and professional consultation. For coding, use Claude Code or similar tools.
 
 **Q: Is this free?**
 A: The software is free and open source (MIT License). You need your own OpenAI API key — API usage costs apply according to OpenAI's pricing.
 
 **Q: Can I use my own expert roles?**
-A: Yes! Place `.md` files in `~/.openai-cli/roles/` with the proper YAML frontmatter.
+A: Yes! Place `.md` files in `~/.askpro/roles/` with the proper YAML frontmatter.
 
 **Q: Which OpenAI models are supported?**
 A: GPT-4o, GPT-4o-mini, o3, and o4-mini. Default is GPT-4o.
@@ -446,7 +446,7 @@ A: GPT-4o, GPT-4o-mini, o3, and o4-mini. Default is GPT-4o.
 A: Documents are parsed locally. Only text chunks (not full documents) are sent to OpenAI for analysis. No data is stored on external servers.
 
 **Q: Can this replace a real lawyer/doctor/tax advisor?**
-A: No. openai-cli provides AI-assisted analysis and drafts. For legally binding actions, always consult a licensed professional.
+A: No. askpro-cli provides AI-assisted analysis and drafts. For legally binding actions, always consult a licensed professional.
 
 ---
 

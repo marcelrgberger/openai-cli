@@ -1,6 +1,6 @@
 import { loadConfig } from '../config/loader.js';
 
-const BASE_PROMPT = `Du bist openai-cli — ein KI-gestuetzter Fachexperten-Assistent fuer Dokumentenanalyse und professionelle Beratung.
+const BASE_PROMPT = `Du bist askpro — ein KI-gestuetzter Fachexperten-Assistent fuer Dokumentenanalyse und professionelle Beratung.
 
 ## Deine Faehigkeiten
 
