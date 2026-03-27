@@ -47,8 +47,22 @@ export class ToolRegistry {
   }
 }
 
-export function createToolRegistry(): ToolRegistry {
+export async function createToolRegistry(): Promise<ToolRegistry> {
   const registry = new ToolRegistry();
-  // Tools will be registered in Phase 2
+
+  const { docReadTool } = await import('./definitions/doc-read.js');
+  const { docSummarizeTool } = await import('./definitions/doc-summarize.js');
+  const { docSearchTool } = await import('./definitions/doc-search.js');
+  const { docIngestTool } = await import('./definitions/doc-ingest.js');
+  const { webFetchTool } = await import('./definitions/web-fetch.js');
+  const { calculateTool } = await import('./definitions/calculate.js');
+
+  registry.register(docReadTool);
+  registry.register(docSummarizeTool);
+  registry.register(docSearchTool);
+  registry.register(docIngestTool);
+  registry.register(webFetchTool);
+  registry.register(calculateTool);
+
   return registry;
 }

@@ -19,7 +19,7 @@ export async function startRepl(args: CliArgs): Promise<void> {
   const settings = loadSettings();
   const model = args.model || settings.model;
   const conversation = new Conversation(model);
-  const toolRegistry = createToolRegistry();
+  const toolRegistry = await createToolRegistry();
 
   let activeRole: string | null = args.role || null;
 
