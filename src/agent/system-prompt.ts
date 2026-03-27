@@ -153,6 +153,12 @@ export function buildSystemPrompt(activeRole?: string, roleContent?: string, jur
 
   const parts = [BASE_PROMPT];
 
+  // Inject current date/time
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  parts.push(`\n## Current Date & Time\n\nToday is ${dateStr}, ${timeStr}. Use this for calculating deadlines, statute of limitations, and time-sensitive advice.`);
+
   // Inject language and country context
   parts.push(`\n## Language\n\nALWAYS respond in **${langName}**. This is the user's preferred language.`);
   parts.push(`\n## User Country\n\nThe user is located in: **${countryName}** (${country})\nUse the laws, regulations, and procedures of ${countryName}. Do NOT ask for the country — it is already known.`);

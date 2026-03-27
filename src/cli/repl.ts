@@ -4,7 +4,7 @@ import { agentLoop } from '../agent/loop.js';
 import { buildSystemPrompt } from '../agent/system-prompt.js';
 import { createToolRegistry } from '../tools/registry.js';
 import { handleCommand, getRoleCompletions } from './commands.js';
-import { renderWelcome, renderPrompt, renderError, renderToolCall, renderInfo, renderMarkdown } from './renderer.js';
+import { renderWelcome, renderPrompt, renderError, renderToolCall, renderInfo, renderMarkdown, ThinkingAnimation } from './renderer.js';
 import { RoleRegistry } from '../roles/registry.js';
 import type { CliArgs } from './args.js';
 import { loadSettings, saveSettings } from '../config/settings.js';
@@ -415,9 +415,16 @@ export async function startRepl(args: CliArgs): Promise<void> {
 
     try {
       console.log();
+      const thinking = new ThinkingAnimation(activeRole);
+      thinking.start();
       const result = await agentLoop(conversation, toolRegistry, {
-        onToolStart: (name) => renderToolCall(name),
+        onToolStart: (name) => {
+          thinking.stop();
+          renderToolCall(name);
+          thinking.start();
+        },
       });
+      thinking.stop();
       if (result) {
         process.stdout.write(renderMarkdown(result));
         lastResponse = result;
