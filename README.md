@@ -1,6 +1,6 @@
-# askpro-cli
+# askapro-cli
 
-**AI-powered document analysis with 85+ expert consultation roles.**
+**Ask a Pro — AI-powered document analysis with 85+ expert consultation roles.**
 
 Predefined specialist roles — from attorneys and doctors to tax advisors and architects. Reads documents of any format, automatically activates the right expert, and produces professional outputs like lawsuits, tax returns, or expert opinions.
 
@@ -28,20 +28,20 @@ Predefined specialist roles — from attorneys and doctors to tax advisors and a
 
 ```bash
 brew tap marcelrgberger/tap
-brew install askpro-cli
+brew install askapro-cli
 ```
 
 ### npm
 
 ```bash
-npm install -g askpro-cli
+npm install -g askapro-cli
 ```
 
 ### From Source
 
 ```bash
-git clone https://github.com/marcelrgberger/askpro-cli.git
-cd askpro-cli
+git clone https://github.com/marcelrgberger/askapro-cli.git
+cd askapro-cli
 npm install
 npm run build
 npm link
@@ -56,7 +56,7 @@ You need an OpenAI API key. Get one at [platform.openai.com](https://platform.op
 export OPENAI_API_KEY="sk-..."
 
 # Option 2: Pass at startup
-askpro-cli --api-key "sk-..."
+askapro --api-key "sk-..."
 
 # Option 3: Saved automatically after first use
 ```
@@ -68,11 +68,11 @@ On first launch, you'll be prompted to choose your preferred model from a live l
 ### Interactive Mode
 
 ```bash
-askpro-cli
+askapro
 ```
 
 ```
-  askpro-cli — Expert Document Agent
+  askapro — Ask a Pro. Expert Document Agent.
   85+ Expert Roles | Document Analysis | Professional Outputs
 
   Welcome! Fetching available models from OpenAI...
@@ -84,7 +84,7 @@ askpro-cli
   5. o4-mini [reasoning]
   ...
 
-askpro > I received a termination letter from my employer
+askapro > I received a termination letter from my employer
 
   In which country are you located / which law applies?
   1. Germany
@@ -92,7 +92,7 @@ askpro > I received a termination letter from my employer
   3. Switzerland
   4. Other (please specify)
 
-askpro > 1
+askapro > 1
 
   [Employment Law Attorney (Germany) activated]
 
@@ -111,16 +111,16 @@ askpro > 1
 
 ```bash
 # Analyze a single document
-askpro-cli --print "Summarize this document" < contract.pdf
+askapro --print "Summarize this document" < contract.pdf
 
 # Analyze a directory
-askpro-cli --dir ./tax-receipts/ --print "Prepare a tax return from these receipts"
+askapro --dir ./tax-receipts/ --print "Prepare a tax return from these receipts"
 
 # Use a specific role
-askpro-cli --role steuerberater --print "Check this tax assessment"
+askapro --role steuerberater --print "Check this tax assessment"
 
 # Use a specific model
-askpro-cli --model gpt-5.4-pro --print "Complex legal analysis"
+askapro --model gpt-5.4-pro --print "Complex legal analysis"
 ```
 
 ### Commands
@@ -210,7 +210,7 @@ You can also set a model per project in your `OPENAI.md`:
 
 ## Configuration
 
-### Global: `~/.askpro/OPENAI.md`
+### Global: `~/.askapro/OPENAI.md`
 
 ```markdown
 # OPENAI.md
@@ -245,7 +245,7 @@ Documents for my divorce proceedings.
 
 ## Custom Expert Roles
 
-Place custom roles as `.md` files in `~/.askpro/roles/`:
+Place custom roles as `.md` files in `~/.askapro/roles/`:
 
 ```markdown
 ---
@@ -292,9 +292,9 @@ graph TB
 
 ## Platform
 
-**askpro-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
+**askapro-cli is currently optimized for macOS.** Apple document formats (.pages, .numbers, .key) use macOS-native tools (`textutil`).
 
-**Contributions for Windows and Linux are very welcome!** If you'd like to port askpro-cli to other platforms, we appreciate pull requests.
+**Contributions for Windows and Linux are very welcome!** If you'd like to port askapro-cli to other platforms, we appreciate pull requests.
 
 ## Documentation
 

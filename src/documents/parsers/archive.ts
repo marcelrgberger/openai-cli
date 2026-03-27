@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 export function extractArchive(filePath: string): string[] {
-  const tempDir = mkdtempSync(join(tmpdir(), 'askpro-'));
+  const tempDir = mkdtempSync(join(tmpdir(), 'askapro-'));
 
   try {
     if (filePath.endsWith('.zip')) {

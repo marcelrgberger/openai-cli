@@ -98,7 +98,7 @@ export function loadAllRoles(): RoleDefinition[] {
     // Homebrew: libexec/roles/ (when installed via brew)
     resolve(scriptDir, '..', 'roles'),
     resolve(scriptDir, '..', '..', 'roles'),
-    // npm global: node_modules/askpro-cli/src/roles/
+    // npm global: node_modules/askapro-cli/src/roles/
     resolve(scriptDir, '..', '..', 'src', 'roles'),
     resolve(scriptDir, '..', 'src', 'roles'),
     // CWD-relative fallback

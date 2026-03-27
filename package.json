@@ -1,12 +1,12 @@
 {
-  "name": "askpro-cli",
-  "version": "0.3.0",
-  "description": "AI-powered document analysis with 85+ expert consultation roles for legal, medical, tax, and professional advice",
+  "name": "askapro-cli",
+  "version": "0.4.0",
+  "description": "Ask a Pro — AI-powered document analysis with 85+ expert consultation roles for legal, medical, tax, and professional advice",
   "author": "Marcel R. G. Berger <hello@marcelrgberger.com>",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "askpro": "./dist/askpro-cli.js"
+    "askapro": "./dist/askapro-cli.js"
   },
   "main": "./dist/index.js",
   "files": [
@@ -15,8 +15,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsx bin/askpro-cli.ts",
-    "start": "node dist/bin/askpro-cli.js",
+    "dev": "tsx bin/askapro-cli.ts",
+    "start": "node dist/askapro-cli.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcelrgberger/askpro-cli.git"
+    "url": "https://github.com/marcelrgberger/askapro-cli.git"
   },
   "keywords": [
     "openai",
@@ -64,6 +64,7 @@
     "legal",
     "medical",
     "tax",
-    "ai-agent"
+    "ai-agent",
+    "askapro"
   ]
 }

@@ -263,7 +263,7 @@ async function showRolesInteractive(ctx: CommandContext): Promise<void> {
     console.log();
   }
 
-  console.log(chalk.dim('  Custom roles: add .md files to ~/.askpro/roles/'));
+  console.log(chalk.dim('  Custom roles: add .md files to ~/.askapro/roles/'));
   console.log();
 
   const answer = await ctx.askQuestion(chalk.cyan('  Activate role [number or Enter to skip]: '));

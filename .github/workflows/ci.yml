@@ -36,4 +36,4 @@ jobs:
         run: npm run build
 
       - name: Verify CLI help
-        run: node dist/askpro-cli.js --help
+        run: node dist/askapro-cli.js --help

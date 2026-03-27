@@ -12,7 +12,7 @@ export interface CliArgs {
 
 export function parseArgs(): CliArgs {
   const argv = yargs(hideBin(process.argv))
-    .scriptName('askpro')
+    .scriptName('askapro')
     .usage('$0 [options]')
     .option('model', {
       alias: 'm',

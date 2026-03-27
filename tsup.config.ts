@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: {
-    'askpro-cli': 'bin/askpro-cli.ts',
+    'askapro-cli': 'bin/askapro-cli.ts',
     'index': 'src/index.ts',
   },
   format: ['esm'],

@@ -2,7 +2,7 @@ import chalk from 'chalk';
 
 export function renderWelcome(): void {
   console.log();
-  console.log(chalk.bold.green('  askpro') + chalk.dim(' — Ask a Pro. Expert Document Agent.'));
+  console.log(chalk.bold.green('  askapro') + chalk.dim(' — Ask a Pro. Expert Document Agent.'));
   console.log(chalk.dim('  85+ Expert Roles | Document Analysis | Professional Outputs'));
   console.log();
   console.log(chalk.dim('  Commands: /help, /roles, /docs, /export, /model, /clear'));
@@ -44,5 +44,5 @@ export function renderInfo(message: string): void {
 }
 
 export function renderPrompt(): string {
-  return chalk.green('askpro') + chalk.dim(' > ');
+  return chalk.green('askapro') + chalk.dim(' > ');
 }
