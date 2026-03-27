@@ -307,12 +307,26 @@ export async function startRepl(args: CliArgs): Promise<void> {
   });
 
   replRl = rl;
+  let lastResponse = '';
 
   rl.prompt();
 
   rl.on('line', async (line) => {
     const input = line.trim();
     if (!input) {
+      rl.prompt();
+      return;
+    }
+
+    // Copy last response to clipboard
+    if (input.toLowerCase() === 'c' && lastResponse) {
+      try {
+        const { execFileSync } = await import('node:child_process');
+        execFileSync('pbcopy', [], { input: lastResponse });
+        console.log(chalk.green('  Copied to clipboard.'));
+      } catch {
+        console.log(chalk.yellow('  Could not copy to clipboard.'));
+      }
       rl.prompt();
       return;
     }
@@ -338,6 +352,8 @@ export async function startRepl(args: CliArgs): Promise<void> {
       });
       if (result) {
         process.stdout.write(renderMarkdown(result));
+        lastResponse = result;
+        console.log(chalk.dim('  [c] copy to clipboard'));
       }
       console.log();
     } catch (err) {
