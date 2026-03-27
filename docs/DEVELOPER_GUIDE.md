@@ -1,4 +1,4 @@
-# askpro-cli — Developer Guide
+# askapro-cli — Developer Guide
 
 Technical documentation for contributors and developers.
 
@@ -25,7 +25,7 @@ Technical documentation for contributors and developers.
 ```mermaid
 graph TB
     subgraph CLI Layer
-        A[bin/askpro-cli.ts] --> B[cli/repl.ts]
+        A[bin/askapro-cli.ts] --> B[cli/repl.ts]
         B --> C[cli/commands.ts]
         B --> D[cli/renderer.ts]
         B --> E[cli/args.ts]
@@ -139,11 +139,11 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     A[User Query + Document Context] --> B[Extract Keywords]
-    B --> C[Match Against 65 Role Trigger Lists]
+    B --> C[Match Against 85 Role Trigger Lists]
     C --> D{Top Match Score}
     D -->|Score >= 3 triggers| E[Fast Path: Direct Activation]
     D -->|Score < 3 triggers| F[LLM Classification]
-    F --> G[GPT-4o-mini Analyzes Query]
+    F --> G[GPT-5.4-mini Analyzes Query]
     G --> H{Classification Result}
     H -->|Single Expert| I[Activate Primary Expert]
     H -->|Multiple Experts| J[Activate Multi-Expert Panel]
@@ -158,9 +158,9 @@ flowchart TD
 ## Project Structure
 
 ```
-askpro-cli/
+askapro-cli/
 ├── bin/
-│   └── askpro-cli.ts           # CLI entry point
+│   └── askapro-cli.ts           # CLI entry point
 ├── src/
 │   ├── index.ts                # Public API exports
 │   ├── cli/
@@ -176,7 +176,7 @@ askpro-cli/
 │   ├── llm/
 │   │   ├── client.ts           # OpenAI API wrapper + streaming
 │   │   ├── embeddings.ts       # OpenAI embeddings API
-│   │   └── models.ts           # Model registry (GPT-4o, o3, etc.)
+│   │   └── models.ts           # Model registry (GPT-5.4, o3, etc.)
 │   ├── tools/
 │   │   ├── registry.ts         # Tool registration and dispatch
 │   │   └── definitions/
@@ -217,7 +217,7 @@ askpro-cli/
 │   │   └── meta/               # 3 meta roles (triage, panel, QA)
 │   ├── config/
 │   │   ├── loader.ts           # Load OPENAI.md (global + project)
-│   │   ├── paths.ts            # Standard paths (~/.askpro/)
+│   │   ├── paths.ts            # Standard paths (~/.askapro/)
 │   │   └── settings.ts         # Settings management
 │   ├── memory/
 │   │   ├── manager.ts          # Memory lifecycle
@@ -230,7 +230,7 @@ askpro-cli/
 │   ├── USER_GUIDE.md           # User documentation (this file)
 │   └── DEVELOPER_GUIDE.md      # Developer documentation
 ├── homebrew/
-│   └── askpro-cli.rb           # Homebrew formula
+│   └── askapro-cli.rb           # Homebrew formula
 ├── tests/
 ├── package.json
 ├── tsconfig.json
@@ -588,7 +588,7 @@ tests/
 
 ### Formula location
 
-`homebrew/askpro-cli.rb`
+`homebrew/askapro-cli.rb`
 
 ### Publishing a release
 
@@ -600,7 +600,7 @@ tests/
 ### Local testing
 
 ```bash
-brew install --build-from-source ./homebrew/askpro-cli.rb
+brew install --build-from-source ./homebrew/askapro-cli.rb
 ```
 
 ## Contributing
