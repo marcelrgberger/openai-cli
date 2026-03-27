@@ -36,7 +36,7 @@ jobs:
           TAG_REF: ${{ github.ref }}
         run: |
           VERSION="${TAG_REF#refs/tags/v}"
-          tar -czf "openai-cli-v${VERSION}.tar.gz" \
+          tar -czf "askpro-cli-v${VERSION}.tar.gz" \
             --exclude=node_modules \
             --exclude=.git \
             --exclude=.github \
@@ -45,7 +45,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: openai-cli-v*.tar.gz
+          files: askpro-cli-v*.tar.gz
           generate_release_notes: true
 
       - name: Publish to npm

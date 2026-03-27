@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 export function parseAppleDocument(filePath: string): string {
-  const tempDir = mkdtempSync(join(tmpdir(), 'openai-cli-apple-'));
+  const tempDir = mkdtempSync(join(tmpdir(), 'askpro-apple-'));
   const outFile = join(tempDir, 'output.txt');
 
   try {

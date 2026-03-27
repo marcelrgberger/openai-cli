@@ -1,6 +1,6 @@
 {
   "name": "askpro-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "AI-powered document analysis with 85+ expert consultation roles for legal, medical, tax, and professional advice",
   "author": "Marcel R. G. Berger <hello@marcelrgberger.com>",
   "license": "MIT",

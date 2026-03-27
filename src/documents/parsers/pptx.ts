@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 export async function parsePptx(filePath: string): Promise<string> {
   // Try textutil on macOS first
   try {
-    const tempDir = mkdtempSync(join(tmpdir(), 'openai-cli-pptx-'));
+    const tempDir = mkdtempSync(join(tmpdir(), 'askpro-pptx-'));
     const outFile = join(tempDir, 'output.txt');
     execFileSync('textutil', ['-convert', 'txt', '-output', outFile, filePath], { stdio: 'pipe' });
     if (existsSync(outFile)) {

@@ -1,7 +1,7 @@
-class OpenaiCli < Formula
-  desc "AI-powered document analysis with 65+ expert consultation roles"
-  homepage "https://github.com/marcelrgberger/openai-cli"
-  url "https://github.com/marcelrgberger/openai-cli/archive/refs/tags/v0.1.0.tar.gz"
+class AskproCli < Formula
+  desc "AI-powered document analysis with 85+ expert consultation roles"
+  homepage "https://github.com/marcelrgberger/askpro-cli"
+  url "https://github.com/marcelrgberger/askpro-cli/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "PLACEHOLDER"
   license "MIT"
 
@@ -12,22 +12,22 @@ class OpenaiCli < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Copy role definitions
-    (share/"openai-cli/roles").install Dir["src/roles/**/*.md"]
+    (share/"askpro-cli/roles").install Dir["src/roles/**/*.md"]
   end
 
   def caveats
     <<~EOS
-      Um openai-cli zu verwenden, brauchst du einen OpenAI API-Key:
+      To use askpro, you need an OpenAI API key:
         export OPENAI_API_KEY="sk-..."
 
-      Oder beim Start:
-        openai-cli --api-key "sk-..."
+      Or pass it on startup:
+        askpro --api-key "sk-..."
 
-      Dokumentation: https://github.com/marcelrgberger/openai-cli
+      Documentation: https://github.com/marcelrgberger/askpro-cli
     EOS
   end
 
   test do
-    assert_match "openai-cli", shell_output("#{bin}/openai-cli --help")
+    assert_match "askpro", shell_output("#{bin}/askpro --help")
   end
 end

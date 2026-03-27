@@ -15,8 +15,8 @@ export function getClient(): OpenAI {
       '\nKein OpenAI API-Key gefunden.\n\n' +
       'Setze deinen Key auf eine dieser Arten:\n' +
       '  1. export OPENAI_API_KEY="sk-..."\n' +
-      '  2. openai-cli --api-key "sk-..."\n' +
-      '  3. In ~/.openai-cli/settings.json: { "apiKey": "sk-..." }\n'
+      '  2. askpro --api-key "sk-..."\n' +
+      '  3. In ~/.askpro/settings.json: { "apiKey": "sk-..." }\n'
     );
     process.exit(1);
   }
